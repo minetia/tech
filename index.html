@@ -16,6 +16,7 @@
             --accent: #8b5cf6; /* Tech Purple */
             --tech-gradient: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
             --story-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            --header-height: 155px;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -26,10 +27,10 @@
             overflow-x: hidden;
         }
 
-        /* --- [Header] --- */
+        /* --- [Header (Compact)] --- */
         header {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid #e5e7eb;
             display: flex; flex-direction: column; align-items: center;
@@ -38,7 +39,7 @@
         .header-inner { width: 100%; max-width: 1400px; }
 
         .header-top {
-            padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 15px; display: flex; justify-content: space-between; align-items: center;
         }
         
         .logo-area { display: flex; align-items: center; gap: 6px; cursor: pointer; }
@@ -109,7 +110,7 @@
         }
         .search-input:focus { background-image: linear-gradient(#fff, #fff), var(--tech-gradient); box-shadow: 0 4px 10px rgba(139, 92, 246, 0.15); }
 
-        /* --- [Layout Grid] --- */
+        /* --- [Main Layout (PC Grid)] --- */
         .main-layout {
             max-width: 1400px; margin: 155px auto 0; padding: 0 20px;
             display: grid;
@@ -210,7 +211,7 @@
     <header id="mainHeader">
         <div class="header-inner">
             <div class="header-top">
-                <div class="logo-area" onclick="location.href='https://minetia.github.io/home/'">
+                <div class="logo-area" onclick="location.href='https://minetia.github.io/Home/'">
                     <i class="fas fa-microchip logo-icon"></i>
                     <span class="logo-text">InfoGram</span>
                     <span class="category-badge">Tech</span>
@@ -308,7 +309,7 @@
 
     <div class="bottom-nav">
         <div class="nav-inner">
-            <div class="nav-item" onclick="location.href='https://minetia.github.io/home/'"><i class="fas fa-home"></i></div>
+            <div class="nav-item" onclick="location.href='https://minetia.github.io/Home/'"><i class="fas fa-home"></i></div>
             <div class="nav-item active"><i class="fas fa-robot"></i></div>
             <div class="nav-item"><i class="far fa-plus-square"></i></div>
             <div class="nav-item" onclick="location.href='https://minetia.github.io/video/'"><i class="fas fa-video"></i></div>
@@ -382,7 +383,7 @@
             }
         }
 
-        // --- 2. 가상 데이터 (언어별 테크 주제) ---
+        // --- 2. 가상 데이터 ---
         function generateVirtualData() {
             const topics = {
                 ko: ['인공지능 혁명', '양자 컴퓨터', '스마트폰 유출', '전기차 배터리', '우주 로켓', '사이버 보안'],
@@ -449,7 +450,7 @@
             document.getElementById('notiDot').style.display = 'block';
         }
 
-        // --- 3. 렌더링 & 페이지네이션 ---
+        // --- 3. 렌더링 ---
         function renderPage(page) {
             currentPage = page;
             const start = (page - 1) * ITEMS_PER_PAGE;
